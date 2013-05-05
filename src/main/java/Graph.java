@@ -6,17 +6,20 @@
 import java.util.ArrayList;
 import java.util.List;
 
+// David Council
+// Tim Buckley
 public class Graph {
 
 	private List<Vertex> vertices;
-	private List<Edge> edges;
 
 	// constructors
-	public Graph(List<Vertex> vertices, List<Edge> edges) {
+	public Graph(List<Vertex> vertices) {
 		this.vertices = vertices;
-		this.edges = edges;
 	}
 
+	/**
+	 * Constructs an empty {@code Graph}. 
+	 */
 	public Graph() {
 		vertices = new ArrayList<Vertex>();
 	}
@@ -26,39 +29,31 @@ public class Graph {
 		this.vertices = vertices;
 	}
 
-	// sets multiple edges
-	public void setEdges(List<Edge> edges) {
-		this.edges = edges;
-	}
-
 	// checks if this graph has this vertex with specified name
 	public boolean hasVertex(String name) {
-		// add your code here
+		for (Vertex v : vertices) {
+			if (v.getName().equals(name)) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 
 	// returns the vertex described with specified name
 	public Vertex getVertex(String name) {
-		// add your code here
-	}
-
-	// checkes if this graph has this edge. 
-	// please make sure that this graph is undirected.
-	public boolean hasEdge(String source, String dest, int dist) {
-		// add your code here
-	}
-
-	// returns the edge from the edge list
-	public Edge getEdge(Edge thisEdge) {
-		// add your code here
+		for (Vertex v : vertices) {
+			if (v.getName().equals(name)) {
+				return v;
+			}
+		}
+		
+		return null;
 	}
 
 	// returns the list of vertices
 	public List<Vertex> getVertices() {
 		return vertices;
 	}
-
-	// returns the list of edges
-	public List<Edge> getEdges() {
-		return edges;
-	}
+	
 }
